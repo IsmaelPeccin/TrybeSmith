@@ -1,4 +1,4 @@
-import { IListAllProducts } from '../interfaces';
+import { IAddProduct, IListAllProducts } from '../interfaces';
 import ProductModel from '../models/ProductModel';
 
 export default class ProductService {
@@ -11,5 +11,10 @@ export default class ProductService {
   list = async (): Promise<IListAllProducts[]> => {
     const allProducts = await this.productModel.list();
     return allProducts;
+  };
+
+  create = async (product: IAddProduct): Promise<IAddProduct> => {
+    const newProduct = await this.productModel.create(product);
+    return newProduct;
   };
 }
