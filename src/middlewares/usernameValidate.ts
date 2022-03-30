@@ -9,7 +9,7 @@ const validateUsername = (req: Request, res: Response, next: NextFunction) => {
   if (typeof username !== 'string') {
     return res.status(422).json({ error: 'Username must be a string' });
   }
-  if (username.length < 2) {
+  if (username.length <= 2) {
     return res.status(422).json({ error: 'Username must be longer than 2 characters' });
   }
   return next();

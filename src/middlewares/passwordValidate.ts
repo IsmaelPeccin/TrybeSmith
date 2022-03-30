@@ -9,7 +9,7 @@ const validatePassword = (req: Request, res: Response, next: NextFunction) => {
   if (typeof password !== 'string') {
     return res.status(422).json({ error: 'Password must be a string' });
   }
-  if (password.length > 7) {
+  if (password.length < 8) {
     return res.status(422).json({ error: 'Password must be longer than 7 characters' });
   }
   return next();

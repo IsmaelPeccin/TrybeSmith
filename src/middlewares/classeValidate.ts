@@ -9,7 +9,7 @@ const validateClasse = (req: Request, res: Response, next: NextFunction) => {
   if (typeof classe !== 'string') {
     return res.status(422).json({ error: 'Classe must be a string' });
   }
-  if (classe.length < 2) {
+  if (classe.length <= 2) {
     return res.status(422).json({ error: 'Classe must be longer than 2 characters' });
   }
   return next();
